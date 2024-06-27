@@ -1,13 +1,13 @@
 type Login = {
-    username: string;
-    password: string;
+    score: string;
+    scorePro: string;
 }
-
 
 type Login2 = {
-    username2: string;
-    password2: string;
+    score2: string;
+    scorePro2: string;
 }
+
 
 type otp = {
     cd: string

